@@ -1,0 +1,1 @@
+import '/imports/api/collections/collections.jsx'
