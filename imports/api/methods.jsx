@@ -5,7 +5,7 @@ export default Meteor.methods({
   getBlogInfo: function(){
     return Meteor.settings.private
   },
-  createNewCollection: function(name,description){
-    Collections.insert({name: name, description: description})
+  createNewCollection: function(name,description,url){
+    Collections.insert({name: name, description: description, url: url})
   }
 })

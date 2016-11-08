@@ -11,6 +11,10 @@ Schemas.Collections = new SimpleSchema({
     type: String,
     label: "Description"
   },
+  "url": {
+    type: String,
+    label: "the short url for your collections",
+  },
   "links": {
     type: [String],
     label: "Links",
