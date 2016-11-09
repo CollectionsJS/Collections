@@ -7,5 +7,10 @@ export default Meteor.methods({
   },
   createNewCollection: function(name,description,url){
     Collections.insert({name: name, description: description, url: url})
+  },
+  createNewUser: function(){
+    Accounts.onCreateUser(function(options, user) {
+      console.log(Meteor.users())
+    })
   }
 })

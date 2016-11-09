@@ -75,7 +75,7 @@ export default class SignUpPage extends React.Component{
           <div>
             <TextField id="RegisterPassword2" hintText="Password Confirmation" type="password"/>
           </div>
-          <RaisedButton label="Submit" primary={true} type="submit" onMouseUp={this._RegisterUser}/>
+          <RaisedButton label="Submit" primary={true} type="submit" onMouseUp={() => {this._RegisterUser}}/>
         </div>
         <Snackbar open={this.state.open} message={this.state.SnackbarMessage} autoHideDuration={4000} onRequestClose={this._CloseSnackbar}/>
       </Card>

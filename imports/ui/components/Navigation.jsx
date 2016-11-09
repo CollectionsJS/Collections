@@ -30,8 +30,10 @@ export default class Navigation extends React.Component {
   CreateNewCollection = () => {
     console.log(document.getElementById("description").value)
     name = document.getElementById("name").value
-    url = document.getElemenyById("url").value
+    urlRaw = document.getElemenyById("url").value
     description = document.getElementById("description").value
+    
+    url = urlRaw.replace(/\s+/g, "-").toLowerCase();
     Meteor.call('createNewCollection',name,description,url)
     this.setState({openModal:false})
   }
