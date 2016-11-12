@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, browserHistory} from 'react-router';
+import { Router, Route, browserHistory, IndexRoute} from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 
@@ -12,6 +12,12 @@ import LoginPage from '/imports/ui/pages/login.jsx';
 export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Route path="/" component={MainLayout}/>
+    <Route path="/signup" component={BlankLayout}>
+      <IndexRoute component={SignUpPage}/>
+    </Route>
+    <Route path="/login" component={BlankLayout}>
+      <IndexRoute component={LoginPage}/>
+    </Route>
   </Router>
 )
 

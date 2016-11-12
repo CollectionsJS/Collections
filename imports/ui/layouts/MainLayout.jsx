@@ -4,12 +4,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Navigation from '/imports/ui/components/Navigation.jsx';
 
-
-export default BlankLayout = ({content}) => (
-  <MuiThemeProvider muiTheme={getMuiTheme()}>
-    <div>
-      <Navigation/>
-      {content}
-    </div>
-  </MuiThemeProvider>
-)
+export default class MainLayout extends React.Component {
+  render(){
+    return(
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <div>
+        <Navigation/>
+          {this.props.children}
+        </div>
+      </MuiThemeProvider>
+      
+    )
+  }
+}
