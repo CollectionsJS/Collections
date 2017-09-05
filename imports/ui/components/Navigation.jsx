@@ -17,7 +17,7 @@ export default class Navigation extends React.Component {
   
   constructor(props) {
     super(props)
-    this.state = {open: false, openModal: false, blogInfo: {name: "null",description: "null",author: "null"}};
+    this.state = {open: false, openModal: false, renderedText: "", blogInfo: {name: "null",description: "null",author: "null"}};
     Meteor.call('getBlogInfo', (err,res) => {
       this.setState({blogInfo: res})
       
@@ -30,9 +30,18 @@ export default class Navigation extends React.Component {
   CreateNewCollection = () => {
     console.log(document.getElementById("description").value)
     name = document.getElementById("name").value
+    urlRaw = document.getElemenyById("url").value
     description = document.getElementById("description").value
-    Meteor.call('createNewCollection',name,description)
+    
+    url = urlRaw.replace(/\s+/g, "-").toLowerCase();
+    Meteor.call('createNewCollection',name,description,url)
     this.setState({openModal:false})
+  }
+  
+  GenerateText = () => {
+    str = document.getElementById("url").value
+    generated = str.replace(/\s+/g, "-").toLowerCase();
+    this.setState({renderedText: generated})
   }
   
   render(){
@@ -76,6 +85,7 @@ export default class Navigation extends React.Component {
             modal={true}
             open={this.state.openModal}>
               <TextField hintText="Name" id="name"/>
+              <TextField hintText="/url" id="url" onKeyUp={this.GenerateText}/><p>{this.state.renderedText}</p>
               <TextField hintText="Description" multiLine={true} rows={2} rowsMax={2} id="description"/>
           </Dialog>
         </Drawer>

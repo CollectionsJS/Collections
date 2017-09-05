@@ -1,5 +1,4 @@
 import React from 'react';
-import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Meteor } from 'meteor/meteor';
 
 import TextField from 'material-ui/TextField';
@@ -12,7 +11,6 @@ export default class LoginPage extends React.Component{
     email = document.getElementById('LoginEmail').value
     password = document.getElementById('LoginPassword').value
     Meteor.loginWithPassword(email,password)
-    FlowRouter.go('/')
   }
   
   render(){

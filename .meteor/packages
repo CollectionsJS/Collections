@@ -20,7 +20,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
 
-kadira:flow-router
+
 accounts-password
 accounts-base
 meteortoys:allthings
@@ -28,3 +28,4 @@ aldeed:collection2
 session
 react-meteor-data
 alanning:roles
+random

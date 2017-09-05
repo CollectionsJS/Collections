@@ -1,6 +1,5 @@
 import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
-import { FlowRouter } from 'meteor/kadira:flow-router';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Card } from 'material-ui/Card';
@@ -29,7 +28,6 @@ export default class SignUpPage extends React.Component{
     }
     if(password === password2){
       Accounts.createUser(userData)
-      FlowRouter.go('/')
     } else {
       this.setState({
         open: true,
@@ -75,7 +73,7 @@ export default class SignUpPage extends React.Component{
           <div>
             <TextField id="RegisterPassword2" hintText="Password Confirmation" type="password"/>
           </div>
-          <RaisedButton label="Submit" primary={true} type="submit" onMouseUp={this._RegisterUser}/>
+          <RaisedButton label="Submit" primary={true} type="submit" onTouchTap={this._RegisterUser}/>
         </div>
         <Snackbar open={this.state.open} message={this.state.SnackbarMessage} autoHideDuration={4000} onRequestClose={this._CloseSnackbar}/>
       </Card>
